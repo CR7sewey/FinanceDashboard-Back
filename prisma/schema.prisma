@@ -23,9 +23,9 @@ model User {
 
 model Account {
   id          String        @id @default(uuid())
-  userId      String
+  userId      String        @unique
   user        User         @relation(fields: [userId], references: [id])
-  balance     Float
+  balance     Float        @default(0)
   currency    String
   transactions Transaction[]
 }
