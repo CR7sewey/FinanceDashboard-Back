@@ -31,8 +31,7 @@ export class AuthService {
       data: {
         email: dto.email,
         password: hashedPassword,
-        firstName: dto.firstName,
-        lastName: dto.lastName,
+        name: dto.name,
       },
     });
 
@@ -41,8 +40,6 @@ export class AuthService {
     return {
       id: user.id,
       email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
       token,
     };
   }
@@ -65,10 +62,6 @@ export class AuthService {
     const token = this.generateToken(user.id, user.email);
 
     return {
-      id: user.id,
-      email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
       token,
     };
   }
